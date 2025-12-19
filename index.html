@@ -1,48 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=10">
-    <title>Cloudbound Paradise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云上天国 | Cloudbound Paradise</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@05440/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: radial-gradient(circle at top left, #4f46e5, #7c3aed, #2563eb);
+            background-attachment: fixed;
             min-height: 100vh;
-            font-family: "Inter", sans-serif;
+            font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+            color: white;
+            overflow-x: hidden;
         }
-        .card {
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 01);
-            transition: transform 03s ease, box-shadow 03s ease;
+
+        /* 云朵装饰背景 */
+        .cloud-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            pointer-events: none;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 02);
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .title-gradient {
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 呼吸灯动画 */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center p-4">
-    <header class="text-center mb-12">
-        <h1 class="text-5xl font-bold text-white mb-2">Cloudbound Paradise</h1>
-        <p class="text-xl text-gray-200">A collection of whimsical tools</p>
+<body class="flex flex-col items-center justify-center p-6 sm:p-12">
+
+    <div class="cloud-bg">
+        <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-[100px] opacity-20"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-[120px] opacity-20"></div>
+    </div>
+
+    <header class="text-center mb-16 float-animation">
+        <div class="inline-block mb-4 px-4 py-1 rounded-full border border-white/20 bg-white/10 text-xs tracking-widest uppercase">
+            Creative Workshop
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+            <span class="block title-gradient">云上天国</span>
+            <span class="block text-2xl md:text-3xl font-light opacity-80 mt-2 italic">Cloudbound Paradise</span>
+        </h1>
+        <div class="w-24 h-1 bg-white/30 mx-auto rounded-full mt-6"></div>
     </header>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-        <a href="pretendSinging/index.html" class="card rounded-lg p-8 text-center text-white">
-            <i data-lucide="music" class="mx-auto mb-4 w-16 h-16"></i>
-            <h2 class="text-2xl font-semibold mb-2">Pretend Singing</h2>
-            <p class="text-gray-300">Practice your vocals without making a sound</p>
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+        
+        <a href="pretendSinging/index.html" class="glass-card group p-10 flex flex-col items-center text-center">
+            <div class="mb-6 p-4 rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors">
+                <i data-lucide="mic-2" class="w-12 h-12 text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-1">拟声歌唱</h2>
+            <p class="text-sm text-white/60 mb-4 tracking-widest">PRETEND SINGING</p>
+            <p class="text-gray-200 font-light leading-relaxed">
+                无需出声，在心中练习你的完美音准与节奏感。<br>
+                <span class="text-xs opacity-50">Practice vocals without making a sound.</span>
+            </p>
         </a>
-        <a href="wordsReview/index.html" class="card rounded-lg p-8 text-center text-white">
-            <i data-lucide="book-open" class="mx-auto mb-4 w-16 h-16"></i>
-            <h2 class="text-2xl font-semibold mb-2">Words Review</h2>
-            <p class="text-gray-300">Aid your vocabulary with our review tool</p>
+
+        <a href="wordsReview/index.html" class="glass-card group p-10 flex flex-col items-center text-center">
+            <div class="mb-6 p-4 rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors">
+                <i data-lucide="sparkles" class="w-12 h-12 text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-1">词汇复盘</h2>
+            <p class="text-sm text-white/60 mb-4 tracking-widest">WORDS REVIEW</p>
+            <p class="text-gray-200 font-light leading-relaxed">
+                优雅地回顾与巩固你的词汇量，让记忆如云般轻盈。<br>
+                <span class="text-xs opacity-50">Aid your vocabulary with our review tool.</span>
+            </p>
         </a>
+
     </main>
 
+    <footer class="mt-20 text-white/40 text-sm font-light">
+        &copy; 2024 Cloudbound Paradise · Designed with ✨
+    </footer>
+
     <script>
+        // 初始化 Lucide 图标
         lucide.createIcons();
     </script>
 </body>
