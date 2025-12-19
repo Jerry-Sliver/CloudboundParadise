@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=10">
+    <title>Cloudbound Paradise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@05440/dist/umd/lucide.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: "Inter", sans-serif;
+        }
+        .card {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 01);
+            transition: transform 03s ease, box-shadow 03s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 02);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4">
+    <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-white mb-2">Cloudbound Paradise</h1>
+        <p class="text-xl text-gray-200">A collection of whimsical tools</p>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+        <a href="pretendSinging/index.html" class="card rounded-lg p-8 text-center text-white">
+            <i data-lucide="music" class="mx-auto mb-4 w-16 h-16"></i>
+            <h2 class="text-2xl font-semibold mb-2">Pretend Singing</h2>
+            <p class="text-gray-300">Practice your vocals without making a sound</p>
+        </a>
+        <a href="wordsReview/index.html" class="card rounded-lg p-8 text-center text-white">
+            <i data-lucide="book-open" class="mx-auto mb-4 w-16 h-16"></i>
+            <h2 class="text-2xl font-semibold mb-2">Words Review</h2>
+            <p class="text-gray-300">Aid your vocabulary with our review tool</p>
+        </a>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
