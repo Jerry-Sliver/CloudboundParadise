@@ -9,150 +9,234 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #7c3aed;
-            --bg-dark: #0f172a;
+            --accent: #3b82f6;
+            --bg-light: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
         }
         body {
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 40px 40px; /* 背景网格线，增强技术感 */
+            background-color: var(--bg-light);
+            background-image: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
             font-family: 'Inter', sans-serif;
-            color: #f1f5f9;
+            color: var(--text-primary);
         }
         .mono { font-family: 'Fira Code', monospace; }
         
-        .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
-        .glass-panel:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
-
-        /* 呼吸灯效果 */
-        .status-pulse {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-            box-shadow: 0 0 8px currentColor;
-            animation: pulse 2s infinite;
+        
+        .social-icon {
+            transition: all 0.3s ease;
         }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: var(--accent);
         }
-
-        .category-title {
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            color: #94a3b8;
+        
+        /* 文字发光效果 */
+        .text-glow-blue {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .text-glow-purple {
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+        
+        .text-glow-green {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.5), 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        
+        .text-glow-indigo {
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* 微妙的悬停动画 */
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        /* 按钮特效 */
+        .btn-effect:hover {
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
         }
     </style>
 </head>
 <body class="min-h-screen py-12 px-6">
 
-    <nav class="max-w-6xl mx-auto flex justify-between items-center mb-20">
+    <!-- 导航栏 -->
+    <nav class="max-w-6xl mx-auto flex justify-between items-center mb-16 flex-wrap gap-6">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
-                <i data-lucide="cloud" class="text-white w-6 h-6"></i>
+            <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center shadow-lg">
+                <i data-lucide="cloud" class="text-white w-7 h-7"></i>
             </div>
             <div>
-                <h1 class="text-xl font-bold leading-none">云上天国</h1>
-                <p class="mono text-[10px] text-indigo-400 uppercase tracking-tighter">Cloudbound Paradise v2.0</p>
+                <h1 class="text-2xl font-bold leading-none text-blue-600">云上天国</h1>
+                <p class="mono text-xs text-blue-400 uppercase tracking-tighter">Cloudbound Paradise</p>
             </div>
         </div>
-        <div class="hidden md:flex gap-8 text-sm mono text-gray-400">
-            <a href="https://github.com/你的用户名" class="hover:text-white transition-colors">// GitHub</a>
-            <a href="https://github.com/你的用户名/仓库名/issues" class="hover:text-white transition-colors">// Submit_Tool</a>
+        
+        <!-- 主导航菜单 -->
+        <div class="flex items-center gap-8 flex-wrap">
+            <!-- 本站创意下拉菜单 -->
+            <div class="relative group">
+                <button class="text-gray-700 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium">
+                    本站创意
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform group-hover:text-blue-600"></i>
+                </button>
+                <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <a href="pretendSinging/UserGuide.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">假装自己在唱歌</a>
+                    <a href="wordsReview/UserGuide.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">无敌单词强化记忆</a>
+                    <a href="foreignEnterpriseRecruitment/index.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">外企招聘网站汇总</a>
+                </div>
+            </div>
+            
+            <!-- 会员创意 -->
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">会员创意</a>
+            
+            <!-- 实用链接 -->
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">实用链接</a>
+            
+            <!-- 联系我们 -->
+            <div class="relative group">
+                <button class="text-gray-700 hover:text-blue-600 transition-colors flex items-center gap-1 font-medium">
+                    联系我们
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 transition-transform group-hover:text-blue-600"></i>
+                </button>
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <a href="mailto:973256921@qq.com" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">973256921@qq.com</a>
+                    <a href="mailto:lee434164@gmail.com" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">lee434164@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 社交媒体图标 -->
+        <div class="flex gap-4 items-center">
+            <a href="#" class="social-icon" title="GitHub">
+                <i data-lucide="github" class="w-5 h-5 text-gray-600"></i>
+            </a>
+            <a href="#" class="social-icon" title="X">
+                <i data-lucide="twitter" class="w-5 h-5 text-gray-600"></i>
+            </a>
+            <a href="#" class="social-icon" title="YouTube">
+                <i data-lucide="youtube" class="w-5 h-5 text-gray-600"></i>
+            </a>
+            <a href="#" class="social-icon" title="Instagram">
+                <i data-lucide="instagram" class="w-5 h-5 text-gray-600"></i>
+            </a>
+            <a href="#" class="social-icon" title="小红书">
+                <i data-lucide="book-open" class="w-5 h-5 text-gray-600"></i>
+            </a>
+            <a href="#" class="social-icon" title="抖音">
+                <i data-lucide="film" class="w-5 h-5 text-gray-600"></i>
+            </a>
+            <a href="#" class="social-icon" title="微信">
+                <i data-lucide="message-circle" class="w-5 h-5 text-gray-600"></i>
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto">
-        
-        <section class="mb-16">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="category-title">01. Native Tools / 原生工具</span>
-                <div class="h-[1px] flex-1 bg-gray-800"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <a href="pretendSinging/index.html" class="glass-panel p-6 rounded-xl block group">
-                    <div class="flex justify-between items-start mb-4">
-                        <i data-lucide="mic-2" class="w-8 h-8 text-indigo-400"></i>
-                        <span class="text-green-400 text-[10px] mono flex items-center">
-                            <span class="status-pulse bg-green-400"></span>ONLINE
-                        </span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">拟声歌唱</h3>
-                    <p class="text-sm text-gray-400 font-light mb-4">无需出声，在心中练习你的完美音准与节奏。针对静音环境优化。</p>
-                    <div class="text-[10px] text-gray-600 mono">#Music #Vocal #WebTools</div>
-                </a>
-
-                <a href="wordsReview/index.html" class="glass-panel p-6 rounded-xl block group">
-                    <div class="flex justify-between items-start mb-4">
-                        <i data-lucide="book-open" class="w-8 h-8 text-indigo-400"></i>
-                        <span class="text-yellow-400 text-[10px] mono flex items-center">
-                            <span class="status-pulse bg-yellow-400"></span>BETA
-                        </span>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">词汇复盘</h3>
-                    <p class="text-sm text-gray-400 font-light mb-4">优雅地回顾与巩固词汇。支持自建词库与多种记忆模式。</p>
-                    <div class="text-[10px] text-gray-600 mono">#Study #Vocabulary #Focus</div>
-                </a>
-            </div>
+    <!-- 主要内容 -->
+    <main class="max-w-5xl mx-auto">
+        <!-- 英雄区域 -->
+        <section class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                <span class="text-blue-600 text-glow-blue">云上天国</span>
+            </h2>
+            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                一个专注于创意分享与技术交流的数字平台
+            </p>
         </section>
 
-        <section class="mb-16">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="category-title">02. Hosting Service / 托管项目</span>
-                <div class="h-[1px] flex-1 bg-gray-800"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="https://github.com/你的用户名/仓库名/issues" class="border-2 border-dashed border-gray-800 p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-indigo-500/50 transition-all group">
-                    <i data-lucide="plus-circle" class="w-10 h-10 text-gray-600 group-hover:text-indigo-400 mb-3"></i>
-                    <span class="text-sm text-gray-500 group-hover:text-gray-300">提交你的页面进行托管</span>
-                    <span class="text-[10px] mono text-gray-700 mt-2">SUBMIT_REQUEST.exe</span>
-                </a>
-                
-                <div class="glass-panel p-6 rounded-xl opacity-60">
-                    <div class="flex justify-between items-start mb-4 text-gray-500">
-                        <i data-lucide="file-code" class="w-8 h-8"></i>
-                        <span class="text-[10px] mono">ID: 001</span>
+        <!-- 核心内容卡片 -->
+        <section class="mb-20">
+            <div class="card p-8 md:p-12 bg-gradient-to-br from-white to-blue-50 hover-scale">
+                <!-- 创意工具 -->
+                <div class="mb-10 pb-8 border-b border-blue-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="lightbulb" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-700 text-glow-blue">创意工具</h3>
                     </div>
-                    <h3 class="text-lg font-semibold mb-1 italic text-gray-500">等待收录...</h3>
-                    <p class="text-xs text-gray-600 mono">Awaiting your contribution</p>
+                    <p class="text-gray-700 leading-relaxed pl-16">
+                        我们提供各种实用的创意工具，点击顶部导航栏的「本站创意」查看详情。
+                    </p>
+                </div>
+
+                <!-- 会员共享 -->
+                <div class="mb-10 pb-8 border-b border-blue-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="users" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-700 text-glow-purple">会员共享</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed pl-16">
+                        <strong>重要提示：</strong>所有使用本网站的用户自动成为会员。如果你用AI或自己编写了网页但不方便部署，我们可以代为托管。
+                    </p>
+                </div>
+
+                <!-- 优质外站链接 -->
+                <div class="mb-10 pb-8 border-b border-blue-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="link" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-700 text-glow-green">优质外站链接</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed pl-16">
+                        我们精心筛选了各类优质的外部资源链接，涵盖学习、工具、创意等多个领域，为你提供更多价值。
+                    </p>
+                </div>
+
+                <!-- 愿景 -->
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="compass" class="w-6 h-6 text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-indigo-700 text-glow-indigo">我们的方向</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed pl-16">
+                        我们希望不断优化网站功能，提升用户体验，让这里成为一个更加实用、热闹的创意社区。
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <div class="flex items-center gap-4 mb-8">
-                <span class="category-title">03. Curation / 优质外链</span>
-                <div class="h-[1px] flex-1 bg-gray-800"></div>
-            </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="#" class="glass-panel px-4 py-2 rounded-full text-xs flex items-center gap-2 hover:bg-white/5 transition-all">
-                    <i data-lucide="external-link" class="w-3 h-3 text-indigo-400"></i>
-                    GitHub Trending
+        <!-- 联系方式 -->
+        <section class="text-center">
+            <h3 class="text-2xl font-bold mb-6">联系我们</h3>
+            <p class="text-gray-600 mb-8">
+                如果您有任何想法、建议或合作意向，欢迎随时与我们联系。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:973256921@qq.com" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors btn-effect">
+                    <i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>973256921@qq.com
                 </a>
-                <a href="#" class="glass-panel px-4 py-2 rounded-full text-xs flex items-center gap-2 hover:bg-white/5 transition-all">
-                    <i data-lucide="external-link" class="w-3 h-3 text-indigo-400"></i>
-                    Dev.to Community
+                <a href="mailto:lee434164@gmail.com" class="px-6 py-3 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors btn-effect">
+                    <i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>lee434164@gmail.com
                 </a>
             </div>
         </section>
-
     </main>
 
-    <footer class="max-w-6xl mx-auto mt-32 border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-[10px] mono text-gray-600 uppercase">System Status: All systems operational</p>
-        <p class="text-[10px] mono text-gray-600">&copy; 2024 CLOUDBOUND_PARADISE. All Rights Reserved.</p>
+    <!-- 页脚 -->
+    <footer class="max-w-6xl mx-auto mt-32 pt-12 border-t border-gray-200 text-center">
+        <p class="text-gray-500">
+            &copy; 2025 云上天国 Cloudbound Paradise. 保留所有权利。
+        </p>
     </footer>
 
     <script>
