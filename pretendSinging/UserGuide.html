@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>假装自己在唱歌 - 用户指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            background-image: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+        }
+        .mono {
+            font-family: 'Fira Code', monospace;
+        }
+        .markdown-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .markdown-content h1 {
+            color: #3b82f6;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .markdown-content h2 {
+            color: #2563eb;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content li {
+            margin-bottom: 0.5rem;
+        }
+        .markdown-content a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .markdown-content a:hover {
+            text-decoration: underline;
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='../index.html'">
+        <i data-lucide="arrow-left" class="w-5 h-5 text-gray-600"></i>
+        <span class="text-gray-700 font-medium">返回首页</span>
+    </button>
+    
+    <div class="markdown-content mt-16">
+        <h1>假装自己在唱歌用户指南</h1>
+        
+        <h2>平台介绍</h2>
+        
+        <p>这是一个允许你自行上传歌词和伴奏进行唱歌的互动平台。</p>
+        
+        <ul>
+            <li>只需上传匹配的歌词和伴奏文件，即可跟着歌词提示唱歌</li>
+            <li>支持开启摄像头，实时观看自己唱歌的表情</li>
+            <li>为何叫做「假装自己在唱歌」？因为你可以上传完整的曲子，即使不开录音也能跟着唱</li>
+        </ul>
+        
+        <h2>使用方法</h2>
+        
+        <ol>
+            <li><strong>上传歌词和伴奏</strong>：选择你的歌词文件和对应的伴奏音频</li>
+            <li><strong>开始体验</strong>：点击播放伴奏按钮，跟随歌词提示开始唱歌</li>
+            <li><strong>录制功能</strong>：
+                <ul>
+                    <li>平台提供基础录制功能（点击右下方录音按钮，再点击左下方录制按钮，选择浏览器窗口）</li>
+                    <li>为获得更好的视频质量，推荐使用系统自带的录屏功能</li>
+                    <li>录制时建议框选出歌词和人像显示区域，并记得打开麦克风</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h2>资源获取</h2>
+        
+        <p>不知道哪里可以获取歌词和音乐文件？</p>
+        
+        <ul>
+            <li>直接在浏览器搜索「歌词下载」或「音乐下载」</li>
+            <li>选择你喜欢的歌曲资源进行下载使用</li>
+        </ul>
+        
+        <h2>开始使用</h2>
+        
+        <p class="text-lg mb-8">点击下方按钮立即体验：</p>
+        
+        <div class="text-center">
+            <a href="index.html" class="inline-block px-10 py-5 bg-blue-600 text-white text-2xl font-bold rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 animate-pulse">
+                开始使用假装自己在唱歌平台
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
