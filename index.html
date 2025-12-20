@@ -6,117 +6,156 @@
     <title>云上天国 | Cloudbound Paradise</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.12);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --accent: #7c3aed;
+            --bg-dark: #0f172a;
         }
-
         body {
-            background: radial-gradient(circle at top left, #4f46e5, #7c3aed, #2563eb);
-            background-attachment: fixed;
-            min-height: 100vh;
-            font-family: 'Poppins', 'Noto Sans SC', sans-serif;
-            color: white;
-            overflow-x: hidden;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 40px 40px; /* 背景网格线，增强技术感 */
+            font-family: 'Inter', sans-serif;
+            color: #f1f5f9;
+        }
+        .mono { font-family: 'Fira Code', monospace; }
+        
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-panel:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
         }
 
-        /* 云朵装饰背景 */
-        .cloud-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-            pointer-events: none;
+        /* 呼吸灯效果 */
+        .status-pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 8px currentColor;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
 
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .category-title {
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: #94a3b8;
         }
-
-        .glass-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            background: rgba(255, 255, 255, 0.18);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .title-gradient {
-            background: linear-gradient(to right, #fff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* 呼吸灯动画 */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .float-animation { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center p-6 sm:p-12">
+<body class="min-h-screen py-12 px-6">
 
-    <div class="cloud-bg">
-        <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-[100px] opacity-20"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-[120px] opacity-20"></div>
-    </div>
-
-    <header class="text-center mb-16 float-animation">
-        <div class="inline-block mb-4 px-4 py-1 rounded-full border border-white/20 bg-white/10 text-xs tracking-widest uppercase">
-            Creative Workshop
+    <nav class="max-w-6xl mx-auto flex justify-between items-center mb-20">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                <i data-lucide="cloud" class="text-white w-6 h-6"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold leading-none">云上天国</h1>
+                <p class="mono text-[10px] text-indigo-400 uppercase tracking-tighter">Cloudbound Paradise v2.0</p>
+            </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-            <span class="block title-gradient">云上天国</span>
-            <span class="block text-2xl md:text-3xl font-light opacity-80 mt-2 italic">Cloudbound Paradise</span>
-        </h1>
-        <div class="w-24 h-1 bg-white/30 mx-auto rounded-full mt-6"></div>
-    </header>
+        <div class="hidden md:flex gap-8 text-sm mono text-gray-400">
+            <a href="https://github.com/你的用户名" class="hover:text-white transition-colors">// GitHub</a>
+            <a href="https://github.com/你的用户名/仓库名/issues" class="hover:text-white transition-colors">// Submit_Tool</a>
+        </div>
+    </nav>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+    <main class="max-w-6xl mx-auto">
         
-        <a href="pretendSinging/index.html" class="glass-card group p-10 flex flex-col items-center text-center">
-            <div class="mb-6 p-4 rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors">
-                <i data-lucide="mic-2" class="w-12 h-12 text-white"></i>
+        <section class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="category-title">01. Native Tools / 原生工具</span>
+                <div class="h-[1px] flex-1 bg-gray-800"></div>
             </div>
-            <h2 class="text-2xl font-bold mb-1">假装自己在歌唱</h2>
-            <p class="text-sm text-white/60 mb-4 tracking-widest">PRETEND SINGING</p>
-            <p class="text-gray-200 font-light leading-relaxed">
-                无需完美，跟随练习你的完美音准与节奏感。<br>
-                <span class="text-xs opacity-50">Practice vocals without making a sound.</span>
-            </p>
-        </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="pretendSinging/index.html" class="glass-panel p-6 rounded-xl block group">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="mic-2" class="w-8 h-8 text-indigo-400"></i>
+                        <span class="text-green-400 text-[10px] mono flex items-center">
+                            <span class="status-pulse bg-green-400"></span>ONLINE
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">拟声歌唱</h3>
+                    <p class="text-sm text-gray-400 font-light mb-4">无需出声，在心中练习你的完美音准与节奏。针对静音环境优化。</p>
+                    <div class="text-[10px] text-gray-600 mono">#Music #Vocal #WebTools</div>
+                </a>
 
-        <a href="wordsReview/index.html" class="glass-card group p-10 flex flex-col items-center text-center">
-            <div class="mb-6 p-4 rounded-2xl bg-white/10 group-hover:bg-white/20 transition-colors">
-                <i data-lucide="sparkles" class="w-12 h-12 text-white"></i>
+                <a href="wordsReview/index.html" class="glass-panel p-6 rounded-xl block group">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="book-open" class="w-8 h-8 text-indigo-400"></i>
+                        <span class="text-yellow-400 text-[10px] mono flex items-center">
+                            <span class="status-pulse bg-yellow-400"></span>BETA
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">词汇复盘</h3>
+                    <p class="text-sm text-gray-400 font-light mb-4">优雅地回顾与巩固词汇。支持自建词库与多种记忆模式。</p>
+                    <div class="text-[10px] text-gray-600 mono">#Study #Vocabulary #Focus</div>
+                </a>
             </div>
-            <h2 class="text-2xl font-bold mb-1">词汇复盘</h2>
-            <p class="text-sm text-white/60 mb-4 tracking-widest">WORDS REVIEW</p>
-            <p class="text-gray-200 font-light leading-relaxed">
-                优雅地回顾与巩固你的词汇量，让记忆如云般轻盈。<br>
-                <span class="text-xs opacity-50">Aid your vocabulary with our review tool.</span>
-            </p>
-        </a>
+        </section>
+
+        <section class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="category-title">02. Hosting Service / 托管项目</span>
+                <div class="h-[1px] flex-1 bg-gray-800"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="https://github.com/你的用户名/仓库名/issues" class="border-2 border-dashed border-gray-800 p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-indigo-500/50 transition-all group">
+                    <i data-lucide="plus-circle" class="w-10 h-10 text-gray-600 group-hover:text-indigo-400 mb-3"></i>
+                    <span class="text-sm text-gray-500 group-hover:text-gray-300">提交你的页面进行托管</span>
+                    <span class="text-[10px] mono text-gray-700 mt-2">SUBMIT_REQUEST.exe</span>
+                </a>
+                
+                <div class="glass-panel p-6 rounded-xl opacity-60">
+                    <div class="flex justify-between items-start mb-4 text-gray-500">
+                        <i data-lucide="file-code" class="w-8 h-8"></i>
+                        <span class="text-[10px] mono">ID: 001</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-1 italic text-gray-500">等待收录...</h3>
+                    <p class="text-xs text-gray-600 mono">Awaiting your contribution</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="category-title">03. Curation / 优质外链</span>
+                <div class="h-[1px] flex-1 bg-gray-800"></div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="glass-panel px-4 py-2 rounded-full text-xs flex items-center gap-2 hover:bg-white/5 transition-all">
+                    <i data-lucide="external-link" class="w-3 h-3 text-indigo-400"></i>
+                    GitHub Trending
+                </a>
+                <a href="#" class="glass-panel px-4 py-2 rounded-full text-xs flex items-center gap-2 hover:bg-white/5 transition-all">
+                    <i data-lucide="external-link" class="w-3 h-3 text-indigo-400"></i>
+                    Dev.to Community
+                </a>
+            </div>
+        </section>
 
     </main>
 
-    <footer class="mt-20 text-white/40 text-sm font-light">
-        &copy; 2024 Cloudbound Paradise · Designed with ✨
+    <footer class="max-w-6xl mx-auto mt-32 border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-[10px] mono text-gray-600 uppercase">System Status: All systems operational</p>
+        <p class="text-[10px] mono text-gray-600">&copy; 2024 CLOUDBOUND_PARADISE. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // 初始化 Lucide 图标
         lucide.createIcons();
     </script>
 </body>
