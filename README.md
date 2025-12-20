@@ -31,14 +31,14 @@
 
 | 类型 Type | 名称 Name | 描述 Description | 来源 Source |
 | :--- | :--- | :--- | :--- |
-| 🛠️ **Native** | [拟声歌唱](pretendSinging/index.html) | 无需出声，在心中练习你的完美音准。 | @Self |
+| 🛠️ **Native** | [假装自己在唱歌](pretendSinging/index.html) | 视频跟唱，假装自己在拍视频或者直播。 | @Self |
 | 🛠️ **Native** | [词汇复盘](wordsReview/index.html) | 优雅地回顾与巩固你的词汇量。 | @Self |
 | ☁️ **Hosting** | [某托管项目名](#) | 这是一个由第三方开发者托管的工具页面。 | @Developer |
 | 🔗 **External** | [外站精选](#) | 推荐一个外部的神奇工具网站。 | [External Site] |
 
 ---
 
-### 📮 加入我们 | Join the Cloud
+### 📮 加入我们 | 973256921@qq.com
 你有写好的 `.html` 文件却不知道发在哪里吗？
 1.  **提交 Issue**: 贴出你的代码或项目链接。
 2.  **审核通过**: 我们会为你分配专属路径进行托管。
