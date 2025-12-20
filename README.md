@@ -48,7 +48,7 @@
 
 ### 💻 Tech & Stats | 技术与统计
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=你的用户名&show_icons=true&theme=transparent&title_color=7C3AED&icon_color=4F46E5&text_color=555&bg_color=00000000" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=jerry-sliver&show_icons=true&theme=transparent&title_color=7C3AED&icon_color=4F46E5&text_color=555&bg_color=00000000" width="48%" />
   <img src="https://img.shields.io/badge/Hosting-GitHub_Pages-blue?style=for-the-badge&logo=github" />
 </p>
 
