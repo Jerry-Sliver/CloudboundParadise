@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://你的用户名.github.io"><strong>🚀 进入平台 Enter Platform</strong></a> | 
+  <a href="https://www.dianyingwords.com"><strong>🚀 进入平台 Enter Platform</strong></a> | 
   <a href="#-services-%E6%9C%8D%E5%8A%A1%E8%8C%83%E5%9B%B4"><strong>📋 服务支持 Services</strong></a> | 
   <a href="#-tool-directory-%E5%B7%A5%E5%85%B7%E7%9B%AE%E5%BD%95"><strong>🧰 工具目录 Directory</strong></a>
 </p>
