@@ -14,12 +14,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         h1, h2, h3 {
@@ -544,19 +540,44 @@
     </style>
     <!-- 引入Font Awesome图标库 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="header">
-        <h1>增强版英语单词记忆工具</h1>
-        <p>构建个人词库，智能学习与复习</p>
-    </div>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 max-w-7xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        <i class="fa fa-cloud mr-2"></i>
+                        返回云上天国
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="UserGuide.html" class="text-gray-700 hover:text-blue-600 font-medium">
+                        查看操作指南
+                    </a>
+                    <a href="mailto:973256921@qq.com" class="text-gray-700 hover:text-blue-600 font-medium">
+                        联系开发者
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <div class="header">
+            <h1>增强版英语单词记忆工具</h1>
+            <p>构建个人词库，智能学习与复习</p>
+        </div>
 
-    <!-- 标签页导航 -->
-    <div class="tabs">
-        <div class="tab active" data-tab="learning">学习模式</div>
-        <div class="tab" data-tab="library">词库管理</div>
-        <div class="tab" data-tab="settings">设置</div>
-    </div>
+        <!-- 标签页导航 -->
+        <div class="tabs">
+            <div class="tab active" data-tab="learning">听写复习</div>
+            <div class="tab" data-tab="library">词库管理</div>
+            <div class="tab" data-tab="settings">设置</div>
+        </div>
 
     <!-- 学习模式 -->
     <div class="tab-content active" id="learning-tab">
@@ -2056,5 +2077,6 @@
         // 初始化应用
         init();
     </script>
+    </div>
 </body>
 </html>
