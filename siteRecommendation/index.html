@@ -180,15 +180,12 @@
         // 初始化 Lucide 图标
         lucide.createIcons();
 
-        // 模拟的推荐网站数据（实际项目中可从外部JSON文件加载）
-        const recommendedSites = [];
-
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', () => {
-            // 加载链接数据
-            loadRecommendedSites();
-            // 创建分类筛选按钮
-            createCategoryFilters();
+            // 初始化 Lucide 图标
+            lucide.createIcons();
+            // 替换原来的 loadRecommendedSites() 和 createCategoryFilters()
+            fetchRecommendedSites(); // 直接调用这个函数即可
         });
 
         // 加载推荐网站并渲染到页面
@@ -276,7 +273,8 @@
                 'ai': '人工智能',
                 'dev': '开发者工具',
                 'academic': '学术资源',
-                'design': '设计工具'
+                'design': '设计工具',
+                'learn': '学习资源'
             };
             return categoryMap[category] || category;
         }
@@ -303,4 +301,5 @@
         
     </script>
 </body>
+
 </html>
