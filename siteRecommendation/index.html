@@ -144,7 +144,7 @@
                 优质外站 <br><span class="text-blue-600">推荐</span> <span class="text-slate-300 italic font-light">精选资源集合</span>
             </h2>
             <p class="text-xl text-slate-500 max-w-xl font-light leading-relaxed">
-                由社区筛选的优质网络资源，包含 AI 绘图、极客工具、学术搜索等精品站点，持续更新中。
+                由社区筛选的优质网络资源，包含 AI 工具、学习资源等精品站点，持续更新中。
             </p>
         </div>
 
@@ -180,30 +180,37 @@
         // 初始化 Lucide 图标
         lucide.createIcons();
 
+        // 定义全局变量存储网站数据
+        let recommendedSites = [];
+
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', () => {
-            // 初始化 Lucide 图标
-            lucide.createIcons();
-            // 替换原来的 loadRecommendedSites() 和 createCategoryFilters()
-            fetchRecommendedSites(); // 直接调用这个函数即可
+            fetchRecommendedSites(); // 加载JSON数据
         });
-           // 实际项目中可以使用以下代码从JSON文件加载数据
+
+        // 从JSON文件加载数据
         function fetchRecommendedSites() {
             fetch('recommended-sites.json')
-                .then(response => response.json())
+                .then(response => {
+                    // 检查响应是否成功
+                    if (!response.ok) {
+                        throw new Error(`HTTP错误！状态码：${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     recommendedSites = data;
-                    loadRecommendedSites();
-                    createCategoryFilters();
+                    loadRecommendedSites(); // 渲染网站列表
+                    createCategoryFilters(); // 创建分类筛选按钮
                 })
                 .catch(error => {
                     const container = document.getElementById('linksContainer');
                     container.innerHTML = `
                         <div class="col-span-full flex items-center justify-center h-40">
-                            <p class="text-slate-400 mono text-sm">资源加载失败</p>
+                            <p class="text-slate-400 mono text-sm">资源加载失败：${error.message}</p>
                         </div>
                     `;
-                    console.error('Error loading recommended sites:', error);
+                    console.error('加载推荐网站失败：', error);
                 });
         }
 
@@ -296,9 +303,7 @@
                 'learn': '学习资源'
             };
             return categoryMap[category] || category;
-        } 
+        }
     </script>
 </body>
-
 </html>
-
