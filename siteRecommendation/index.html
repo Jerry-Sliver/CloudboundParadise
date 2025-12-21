@@ -94,13 +94,13 @@
                         本站创意 <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </span>
                     <div class="absolute top-full left-0 w-56 p-2 bg-white border border-slate-200 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                        <a href="nativeCreativity/pretendSinging/UserGuide.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 hover:text-blue-600">
+                        <a href="../nativeCreativity/pretendSinging/UserGuide.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 hover:text-blue-600">
                             <i data-lucide="music" class="w-4 h-4"></i> 假装自己在唱歌
                         </a>
-                        <a href="nativeCreativity/wordsReview/UserGuide.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 hover:text-blue-600">
+                        <a href="../nativeCreativity/wordsReview/UserGuide.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 hover:text-blue-600">
                             <i data-lucide="brain-circuit" class="w-4 h-4"></i> 单词强化训练
                         </a>
-                        <a href="nativeCreativity/foreignEnterpriseRecruitment/index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 hover:text-blue-600">
+                        <a href="../nativeCreativity/foreignEnterpriseRecruitment/index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 hover:text-blue-600">
                             <i data-lucide="globe" class="w-4 h-4"></i> 外企招聘网站汇总
                         </a>
                     </div>
@@ -187,6 +187,25 @@
             // 替换原来的 loadRecommendedSites() 和 createCategoryFilters()
             fetchRecommendedSites(); // 直接调用这个函数即可
         });
+           // 实际项目中可以使用以下代码从JSON文件加载数据
+        function fetchRecommendedSites() {
+            fetch('recommended-sites.json')
+                .then(response => response.json())
+                .then(data => {
+                    recommendedSites = data;
+                    loadRecommendedSites();
+                    createCategoryFilters();
+                })
+                .catch(error => {
+                    const container = document.getElementById('linksContainer');
+                    container.innerHTML = `
+                        <div class="col-span-full flex items-center justify-center h-40">
+                            <p class="text-slate-400 mono text-sm">资源加载失败</p>
+                        </div>
+                    `;
+                    console.error('Error loading recommended sites:', error);
+                });
+        }
 
         // 加载推荐网站并渲染到页面
         function loadRecommendedSites(filterCategory = 'all') {
@@ -277,29 +296,9 @@
                 'learn': '学习资源'
             };
             return categoryMap[category] || category;
-        }
-
-        // 实际项目中可以使用以下代码从JSON文件加载数据
-        function fetchRecommendedSites() {
-            fetch('recommended-sites.json')
-                .then(response => response.json())
-                .then(data => {
-                    recommendedSites = data;
-                    loadRecommendedSites();
-                    createCategoryFilters();
-                })
-                .catch(error => {
-                    const container = document.getElementById('linksContainer');
-                    container.innerHTML = `
-                        <div class="col-span-full flex items-center justify-center h-40">
-                            <p class="text-slate-400 mono text-sm">资源加载失败</p>
-                        </div>
-                    `;
-                    console.error('Error loading recommended sites:', error);
-                });
-        }
-        
+        } 
     </script>
 </body>
 
 </html>
+
