@@ -1,50 +1,26 @@
-{
-  "siteCollection": {
-    "description": "优质网站汇总",
-    "updateTime": "2025-12-21",
-    "categories": [
-      {
-        "categoryName": "AI工具",
-        "categoryDesc": "智能辅助类工具网站，提供高效便捷的AI服务",
-        "sites": [
-          {
-            "siteId": "ai-001",
-            "siteName": "豆包",
-            "url": "https://www.doubao.com",
-            "description": "字节跳动推出的智能助手，支持聊天对话、内容创作、问题解答、代码辅助等多种功能，适用于日常办公、学习研究、创意生成等场景，交互友好且响应迅速"
-          }
-        ]
-      },
-      {
-        "categoryName": "英语学习",
-        "categoryDesc": "专注于英语学习的工具类网站，涵盖多种学习模式与词库资源",
-        "sites": [
-          {
-            "siteId": "learn-001",
-            "siteName": "Qwerty Learner",
-            "url": "https://qwerty.kaiyi.cool/",
-            "description": "结合打字练习与单词记忆的英语学习软件，支持音标显示、默写模式、实时反馈等功能，内置CET-4/6、考研、托福、程序员专属等丰富词库，支持网页版与VSCode插件，完全开源且免费使用"
-          },
-          {
-            "siteId": "learn-002",
-            "siteName": "句乐部",
-            "url": "https://julebu.co/",
-            "description": "基于i+1学习理论的英语学习工具，采用游戏化学习模式，包含中译英、听力、听写、口语四种练习形式，支持自主创建课程，提供学习数据可视化与个性化设置，让英语学习更具趣味性与成就感"
-          }
-        ]
-      },
-      {
-        "categoryName": "API资源",
-        "categoryDesc": "提供各类免费/付费API接口服务，适用于开发与学习场景",
-        "sites": [
-          {
-            "siteId": "api-001",
-            "siteName": "API市场",
-            "url": "https://xxapi.cn/api-market",
-            "description": "聚合多种免费API接口服务的平台，涵盖数据查询、工具转换、内容获取、功能调用等多个类别，包括英语单词详解、翻译、OCR识别、天气查询、二维码生成等实用接口，支持快速集成到开发项目中"
-          }
-        ]
-      }
-    ]
+[
+  {
+    "id": 1,
+    "name": "豆包",
+    "url": "https://www.doubao.com",
+    "description": "字节跳动推出的智能助手，支持聊天对话、内容创作、问题解答、代码辅助等多种功能，适用于日常办公、学习研究、创意生成等场景",
+    "category": "ai",
+    "icon": "robot"
+  },
+  {
+    "id": 2,
+    "name": "API市场",
+    "url": "https://xxapi.cn/api-market",
+    "description": "聚合多种免费API接口服务的平台，涵盖数据查询、工具转换、内容获取、功能调用等多个类别，支持快速集成到开发项目中",
+    "category": "learn",
+    "icon": "code"
+  },
+  {
+    "id": 3,
+    "name": "句乐部",
+    "url": "https://julebu.co/",
+    "description": "基于i+1学习理论的英语学习工具，采用游戏化学习模式，包含中译英、听力、听写、口语四种练习形式，让英语学习更具趣味性",
+    "category": "learn",
+    "icon": "book-open"
   }
-}
+]
