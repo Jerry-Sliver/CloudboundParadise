@@ -116,8 +116,8 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <div class="geek-card p-10 rounded-2xl group block cursor-pointer" data-page="pretendSinging/UserGuide.html">
+            <!-- 工具卡片改为a标签包裹，实现原生跳转 -->
+            <a href="pretendSinging/UserGuide.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
                 <div class="deco-line">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 bg-purple-600 text-white rounded flex items-center justify-center">
@@ -132,9 +132,9 @@
                         查看详情 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="geek-card p-10 rounded-2xl group block cursor-pointer" data-page="wordsReview/UserGuide.html">
+            <a href="wordsReview/UserGuide.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
                 <div class="deco-line">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 bg-green-600 text-white rounded flex items-center justify-center">
@@ -149,9 +149,9 @@
                         查看详情 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="geek-card p-10 rounded-2xl group block cursor-pointer lg:col-span-2" data-page="foreignEnterpriseRecruitment/index.html">
+            <a href="foreignEnterpriseRecruitment/index.html" class="geek-card p-10 rounded-2xl group block cursor-pointer lg:col-span-2">
                 <div class="deco-line">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 bg-orange-600 text-white rounded flex items-center justify-center">
@@ -166,22 +166,7 @@
                         查看详情 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
-            </div>
-
-            <!-- 动态加载区域 -->
-            <div id="dynamic-content" class="lg:col-span-2 hidden">
-                <div class="geek-card p-10 rounded-2xl">
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 id="dynamic-title" class="text-2xl font-bold italic tracking-tight"></h3>
-                        <button id="back-button" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-sm font-medium transition-colors">
-                            <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> 返回列表
-                        </button>
-                    </div>
-                    <div id="dynamic-iframe-container" class="w-full h-[600px] border border-slate-200 rounded-lg overflow-hidden">
-                        <iframe id="dynamic-iframe" src="" class="w-full h-full border-0" onload="this.style.opacity=1"></iframe>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
     </main>
 
@@ -196,46 +181,8 @@
     </footer>
 
     <script>
+        // 初始化Lucide图标
         lucide.createIcons();
-
-        // 动态加载功能实现
-        const toolCards = document.querySelectorAll('[data-page]');
-        const dynamicContent = document.getElementById('dynamic-content');
-        const dynamicTitle = document.getElementById('dynamic-title');
-        const dynamicIframe = document.getElementById('dynamic-iframe');
-        const backButton = document.getElementById('back-button');
-        const toolGrid = document.querySelector('.grid.grid-cols-1');
-
-        // 工具名称映射
-        const toolNames = {
-            'pretendSinging/UserGuide.html': '假装自己在唱歌',
-            'wordsReview/UserGuide.html': '单词强化训练',
-            'foreignEnterpriseRecruitment/index.html': '外企招聘网站汇总'
-        };
-
-        // 为每个工具卡片添加点击事件
-        toolCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const pagePath = card.getAttribute('data-page');
-                const toolName = toolNames[pagePath];
-                
-                // 设置动态内容
-                dynamicTitle.textContent = toolName;
-                dynamicIframe.src = pagePath;
-                
-                // 隐藏工具列表，显示动态内容
-                toolCards.forEach(c => c.classList.add('hidden'));
-                dynamicContent.classList.remove('hidden');
-            });
-        });
-
-        // 返回按钮功能
-        backButton.addEventListener('click', () => {
-            // 显示工具列表，隐藏动态内容
-            toolCards.forEach(c => c.classList.remove('hidden'));
-            dynamicContent.classList.add('hidden');
-            dynamicIframe.src = ''; // 清空 iframe
-        });
     </script>
 </body>
 </html>
