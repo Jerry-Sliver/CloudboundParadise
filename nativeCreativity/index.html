@@ -64,6 +64,25 @@
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* 核心：稳定的两列网格布局，适配所有数量的卡片 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(1px, 1fr)); /* 基础适配 */
+            grid-template-columns: repeat(2, 1fr); /* 大屏强制两列 */
+            gap: 8px;
+        }
+        /* 小屏（lg以下）强制单列 */
+        @media (max-width: 1023px) {
+            .tools-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* 通栏卡片样式（需要跨两列时使用） */
+        .card-full-width {
+            grid-column: 1 / -1;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -115,9 +134,10 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- 工具卡片改为a标签包裹，实现原生跳转 -->
-            <a href="pretendSinging/UserGuide.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
+        <!-- 工具卡片主容器：稳定两列布局，方便手动添加 -->
+        <div class="tools-grid gap-8 mb-16">
+            <!-- 卡片1：假装自己在唱歌 -->
+            <a href="pretendSinging/index.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
                 <div class="deco-line">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 bg-purple-600 text-white rounded flex items-center justify-center">
@@ -134,7 +154,8 @@
                 </div>
             </a>
 
-            <a href="wordsReview/UserGuide.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
+            <!-- 卡片2：单词强化训练 -->
+            <a href="wordsReview/index.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
                 <div class="deco-line">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 bg-green-600 text-white rounded flex items-center justify-center">
@@ -151,7 +172,8 @@
                 </div>
             </a>
 
-            <a href="foreignEnterpriseRecruitment/index.html" class="geek-card p-10 rounded-2xl group block cursor-pointer lg:col-span-2">
+            <!-- 卡片3：外企招聘网站汇总（通栏） -->
+            <a href="foreignEnterpriseRecruitment/index.html" class="geek-card p-10 rounded-2xl group block cursor-pointer card-full-width">
                 <div class="deco-line">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 bg-orange-600 text-white rounded flex items-center justify-center">
@@ -167,6 +189,26 @@
                     </div>
                 </div>
             </a>
+
+            <!-- 示例：新增卡片（可直接复制此块修改） -->
+            <!--
+            <a href="新页面路径.html" class="geek-card p-10 rounded-2xl group block cursor-pointer">
+                <div class="deco-line">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 bg-自定义颜色-600 text-white rounded flex items-center justify-center">
+                            <i data-lucide="图标名称" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold italic tracking-tight">工具名称</h3>
+                    </div>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        工具描述内容（可替换为index.html的title内容）
+                    </p>
+                    <div class="flex items-center gap-2 text-blue-600 font-bold text-sm">
+                        查看详情 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+            </a>
+            -->
         </div>
     </main>
 
