@@ -19,7 +19,15 @@
     "id": 3,
     "name": "句乐部",
     "url": "https://julebu.co/",
-    "description": "基于i+1学习理论的英语学习工具，采用游戏化学习模式，包含中译英、听力、听写、口语四种练习形式，让英语学习更具趣味性",
+    "description": "基于i+1学习理论的英语学习工具，采用游戏化学习模式，包含中译英、听力、听写、口语四种练习形式。",
+    "category": "learn",
+    "icon": "book-open"
+  },
+  {
+    "id": 4,
+    "name": "Qwerty Learner",
+    "url": "https://qwerty.kaiyi.cool/",
+    "description": "拥有大量词库的单词拼写练习平台，缺点是需要开会员才能上传词库。",
     "category": "learn",
     "icon": "book-open"
   }
