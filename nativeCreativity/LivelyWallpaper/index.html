@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lively Wallpaper 极速下载安装、使用教程 | 云上天国</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #2563eb;
+            --bg-light: #ffffff;
+        }
+        body {
+            background-color: var(--bg-light);
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+            font-family: 'Inter', sans-serif;
+            color: #0f172a;
+        }
+        .mono { font-family: 'Fira Code', monospace; }
+        
+        .geek-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .geek-card:hover { border-color: var(--accent); }
+
+        /* 教程步骤数字 */
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 12px;
+        }
+
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            display: inline-block; background-color: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../../index.html" class="flex items-center gap-3">
+                <i data-lucide="cloud" class="text-blue-600 w-6 h-6"></i>
+                <div class="hidden sm:block">
+                    <span class="font-bold tracking-tight text-slate-900">云上天国</span>
+                    <span class="mono text-[10px] text-slate-400 ml-2">v3.0.1</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="../../index.html" class="hover:text-blue-600 transition-colors">首页</a>
+                <a href="#" class="text-blue-600">Lively 专题</a>
+                <a href="../index.html" class="hover:text-blue-600 transition-colors">其他工具</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com" class="text-slate-400 hover:text-slate-900"><i data-lucide="github" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        <div class="mb-16">
+            <div class="flex items-center gap-2 text-xs mono text-blue-600 mb-4">
+                <span class="status-dot"></span> RECOMMENDED_SOFTWARE
+            </div>
+            <h1 class="text-5xl font-black tracking-tighter mb-6">Lively Wallpaper</h1>
+            <p class="text-xl text-slate-500 font-light">
+                开源动态壁纸神器：让你的桌面动起来，不仅是视频，甚至是交互式网页。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="geek-card p-6 rounded-xl">
+                <i data-lucide="zap" class="text-blue-600 mb-4"></i>
+                <h3 class="font-bold mb-2">高性能</h3>
+                <p class="text-sm text-slate-500">运行全屏应用或游戏时自动暂停，零资源占用。</p>
+            </div>
+            <div class="geek-card p-6 rounded-xl">
+                <i data-lucide="code" class="text-blue-600 mb-4"></i>
+                <h3 class="font-bold mb-2">全格式支持</h3>
+                <p class="text-sm text-slate-500">支持视频、GIF、网页、Unity 程序作为壁纸。</p>
+            </div>
+            <div class="geek-card p-6 rounded-xl">
+                <i data-lucide="smile" class="text-blue-600 mb-4"></i>
+                <h3 class="font-bold mb-2">完全免费</h3>
+                <p class="text-sm text-slate-500">开源项目，无广告，无捆绑，极致纯净。</p>
+            </div>
+        </div>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 italic tracking-tight underline underline-offset-8 decoration-blue-200">安装使用教程 / TUTORIAL</h2>
+            <div class="space-y-6">
+                <div class="geek-card p-8 rounded-2xl">
+                    <div class="flex items-start">
+                        <span class="step-number mono">01</span>
+                        <div>
+                            <h4 class="font-bold mb-2">下载安装程序</h4>
+                            <p class="text-slate-500 text-sm mb-4">点击下方下载按钮急速获取最新安装包，或从<a href="https://www.rocksdanister.com/lively/"><strong style="color: #2563eb;">官方网站</strong></a>（速度较慢）下载。</p>
+                            <a href="./lively_setup_x86_full_v2210.exe" class="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-2 rounded-lg text-sm mono hover:bg-blue-600 transition-all">
+                                <i data-lucide="download" class="w-4 h-4"></i> DOWNLOAD_INSTALLER.EXE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="geek-card p-8 rounded-2xl">
+                    <div class="flex items-start">
+                        <span class="step-number mono">02</span>
+                        <div>
+                            <h4 class="font-bold mb-2">运行与配置</h4>
+                            <p class="text-slate-500 text-sm">运行 .exe 文件完成安装。首次启动会有引导设置，建议勾选“随系统启动”。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="geek-card p-8 rounded-2xl">
+                    <div class="flex items-start">
+                        <span class="step-number mono">03</span>
+                        <div>
+                            <h4 class="font-bold mb-2">添加壁纸</h4>
+                            <p class="text-slate-500 text-sm">点击左侧“+”号，将视频文件拖入窗口，或输入网页 URL，即可将其设为桌面。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-blue-50 border border-blue-100 p-6 rounded-xl flex gap-4 items-start">
+            <i data-lucide="info" class="text-blue-600 w-6 h-6 shrink-0"></i>
+            <div class="text-sm text-blue-800 leading-relaxed">
+                <strong class="block mb-1">PRO_TIP:</strong>
+                如果你想让桌面更有逼格，可以尝试在 Lively 中输入一些 <span class="mono bg-blue-100 px-1">ShaderToy</span> 或可视化网页的链接，实现可交互的数字流沙效果。
+            </div>
+        </div>
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-100 text-center">
+        <div class="text-slate-400 text-xs mono">
+            &copy; 2025 CLOUDBOUND_PARADISE // TOOLS_CURATION
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
